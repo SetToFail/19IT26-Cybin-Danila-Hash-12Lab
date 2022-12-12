@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multiply</title>
+</head>
+<body>
+	<input type="text" placeholder="k" id="k" name="">
+	<input type="text" placeholder="A" id="a" name="">
+	<input type="text" placeholder="n" id="n" name="">
+	<input type="button" onclick="division()"  value="Метод деления">
+	<input type="button" onclick="multiply()"  value="Метод умножения">
+	<div id="multiplys"></div>
+	<script type="text/javascript">
+		function division() {
+			var k = document.getElementById('k').value;
+			var res = 0;
+			var resmass = [];
+			k = k.split(' ').map(Number)
+			for (var i = 0; i < k.length; i++) {
+				res = k[i] % k.length;
+				multiplys.innerHTML+='n(' + k[i] + ') = ' + res + ';<br>';
+				resmass += res; 
+			}
+			multiplys.innerHTML+='Результат метода деления: ' + resmass+ '.<br>';
+		}
+		function multiply() {
+			var k = 0;
+			var a = 0;
+			var n = 0;
+			var res = 0;
+			k = document.getElementById('k').value;
+			a = document.getElementById('a').value;
+			n = document.getElementById('n').value;
+			resmass = [];
+			a = Math.abs(a);
+			if(a > 0 && a < 1){
+				k = k.split(' ').map(Number)
+				for (var i = 0; i < k.length; i++) {
+					res = Math.floor(n * ((k[i] * a) % 1));
+					resmass += res;
+				}
+				multiplys.innerHTML+='Результат метода умножения: ' + resmass+ '.<br>';
+			}
+			else{
+				multiplys.innerHTML+='\"A\" должна быть меньше единицы и больше нуля.<br>';
+			}
+
+		}
+	</script>
+</body>
+</html>
